@@ -13,14 +13,13 @@ app.FlightDetailsView = Backbone.View.extend({
         var $detailsOrigin = this.$el.find('#detailsOrigin');
         var $detailsDestination = this.$el.find('#detailsDestination');
         console.log('id: ', id);
-        var currentFlight = app.flights.get(id);
+        var currentFlight = app.flights.get(id).toJSON();
         console.log(currentFlight);
 
-        
-
-
-
-
+        $detailsDate.text(currentFlight.departure_date);
+        $detailsFlight.text(currentFlight.flight_number);
+        $detailsOrigin.text(currentFlight.origin);
+        $detailsDestination.text(currentFlight.destination);
 
     }
 });
