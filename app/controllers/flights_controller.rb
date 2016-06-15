@@ -5,6 +5,7 @@ class FlightsController < ApplicationController
   # GET /flights.json
   def index
     @flights = Flight.all
+    @airplanes = Airplane.all
   end
 
   # GET /flights/1
@@ -72,6 +73,6 @@ class FlightsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def flight_params
-      params.fetch(:flight).permit(:origin, :destination, :departure_date, :flight_number, :plane_id)
+      params.fetch(:flight).permit(:origin, :destination, :departure_date, :flight_number, :airplane_id, :plane_model)
     end
 end
