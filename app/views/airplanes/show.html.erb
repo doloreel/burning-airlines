@@ -1,9 +1,21 @@
+<%= stylesheet_link_tag 'airplanes' %>
+
+
+<p class="plane_name"><%= @airplane.plane_model %></p>
 <div class="plane_seat_grid">
-  
-
-
-    <p><%= @airplane.row %><p>
-    <p><%= @airplane.column %><p>
+  <% @airplane.column.times do %>
+  <div class="column">
+    <span><%= @column_letters[@column_counter] %></span>
+    <% @airplane.row.times do %>
+      <div class="seat">
+        <p><%= @row %></p>
+        <% @row += 1 %>
+      </div>
+    <% end %>
+  </div>
+  <% @row = 1 %>
+  <% @column_counter += 1 %>
+  <% end %>
 </div>
 
 <%= link_to 'Edit', edit_airplane_path(@airplane) %> |
