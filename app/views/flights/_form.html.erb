@@ -11,6 +11,34 @@
     </div>
   <% end %>
 
+  <div class="flight_number">
+    <%= f.label :flight_number, "Flight Number" %><br>
+    <%= f.number_field :flight_number, :required => true  %>
+  </div>
+
+  <div class="date">
+    <%= f.label :departure_date %><br>
+    <%= f.date_field :departure_date %><br>
+  </div>
+
+  <div class="origin">
+    <%= f.label :origin %><br>
+    <%= f.text_field :origin, :required => true  %>
+  </div>
+
+  <div class="destination">
+    <%= f.label :destination %><br>
+    <%= f.text_field :destination, :required => true  %>
+  </div>
+
+
+  <p>
+  <%= f.label :plane_id %>
+  <!-- Airplane.all  -->
+  <%= f.select :plane_id, Airplane.all.map { |a| [ a.id ]} %>
+</p>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
