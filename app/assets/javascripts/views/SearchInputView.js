@@ -3,7 +3,8 @@ var app = app || {};
 app.SearchInputView = Backbone.View.extend({
     el: "#searchInput",
     events: {
-        'click button': 'searchFlights'
+        'click button': 'searchFlights',
+        'click .flightRecord': 'goToFlight'
     },
     searchFlights: function (e) {
 
@@ -11,7 +12,6 @@ app.SearchInputView = Backbone.View.extend({
         var destInput = this.$el.find("#destination").val();
         // FETCH the collection data
         var result;
-
 
         if (originInput.length === 0 && destInput.length > 0 ) {
             result = app.flights.where({destination: destInput});
@@ -25,7 +25,7 @@ app.SearchInputView = Backbone.View.extend({
             result = _.where(result, {destination: destInput});
         } else {
             alert('search something bra')
-            return; 
+            return;
         }
 
         var $searchResultsUL = $('#searchResults');
@@ -33,18 +33,32 @@ app.SearchInputView = Backbone.View.extend({
         $searchResultsUL.html('');
 
         result.forEach(function(flight) {
-            var flightDetails = '';
-
+            
+            var flightDetails = '<a href="flight/';
+                flightDetails += flight.id + '"> '
                 flightDetails += flight.departure_date + " ";
                 flightDetails += flight.origin + " ";
                 flightDetails += flight.destination + " ";
-                flightDetails += flight.updated_at + " ";
+                flightDetails += flight.updated_at + " </a>";
 
             console.log(flightDetails);
 
             var $flightLi = $('<li>').html(flightDetails)
+                $flightLi.addClass('flightRecord')
             $searchResultsUL.append($flightLi);
         })
+
+        $('#searchResults li a').on('click', function (e) {
+            e.preventDefault();
+            var hrefAttr = $(e.target).attr('href');
+            app.router.navigate(hrefAttr, {trigger: true});
+        })
+
+    },
+    goToFlight: function (e) {
+        e.preventDefault();
+        console.log('hi');
+        console.log(e.currentTargert.value())
     },
     render: function() {
         var SearchInputViewTemplate = $('#SearchInputViewTemplate').html();
