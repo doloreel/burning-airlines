@@ -10,6 +10,7 @@ class AirplanesController < ApplicationController
   # GET /airplanes/1
   # GET /airplanes/1.json
   def show
+    @airplane = Airplane.find params[:id]
   end
 
   # GET /airplanes/new
@@ -69,6 +70,6 @@ class AirplanesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def airplane_params
-      params.fetch(:airplane, {})
+      params.require(:airplane).permit(:plane_model, :row, :column)
     end
 end

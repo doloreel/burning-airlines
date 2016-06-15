@@ -11,6 +11,21 @@
     </div>
   <% end %>
 
+  <div class="plane_model">
+    <%= f.label :plane_model, "Plane Model" %><br>
+    <%= f.text_field :plane_model, :required => true  %>
+  </div>
+
+  <div class="plane_rows">
+    <%= f.label :row %><br>
+    <%= f.number_field :row, :required => true  %>
+  </div>
+
+  <div class="plane_columns">
+    <%= f.label :column %><br>
+    <%= f.number_field :column, :required => true  %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
