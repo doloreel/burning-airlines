@@ -8,9 +8,10 @@ app.AppRouter = Backbone.Router.extend({
     indexPage: function () {
         console.log('backbone index ran');
         var appView = new app.AppView();
-        appView.render();
+        appView.render('search');
     },
-    flightPage: function () {
-        
+    flightPage: function (e) {
+        var appView = new app.AppView();
+        appView.render('flight');
     }
 })
