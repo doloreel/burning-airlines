@@ -5,8 +5,10 @@ app.Flights = Backbone.Collection.extend({
     model: app.Flight,
     initialize: function () {
         console.log('initialized flights collection');
+
         this.on('add', function (flight) {
-            console.log('you added ', flight); 
+            console.log('you added ', flight);
         })
+
     }
 })

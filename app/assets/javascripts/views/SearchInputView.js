@@ -6,6 +6,7 @@ app.SearchInputView = Backbone.View.extend({
         'click button': 'searchFlights'
     },
     searchFlights: function (e) {
+        
         var originInput = this.$el.find("#origin").val();
         var destInput = this.$el.find("#destination").val();
         // FETCH the collection data
@@ -30,7 +31,6 @@ app.SearchInputView = Backbone.View.extend({
             var $flightLi = $('<li>').html(flightDetails)
             $searchResultsUL.append($flightLi);
         })
-        
     },
     render: function() {
         var SearchInputViewTemplate = $('#SearchInputViewTemplate').html();
