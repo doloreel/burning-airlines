@@ -7,6 +7,7 @@ app.FlightView = Backbone.View.extend({
         this.$el.html(flightViewTemplate);
         var flightDetailsView = new app.FlightDetailsView();
         flightDetailsView.render(id);
-        
+        var flightSeatsView = new app.FlightSeatsView();
+        flightSeatsView.render(id);
     }
 })
