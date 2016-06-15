@@ -14,6 +14,7 @@ app.SearchInputView = Backbone.View.extend({
         var $searchResultsUL = $('#searchResults');
 
         console.log(result);
+
         result.forEach(function(flightBB) {
 
             var flight = flightBB.toJSON();
@@ -29,10 +30,7 @@ app.SearchInputView = Backbone.View.extend({
             var $flightLi = $('<li>').html(flightDetails)
             $searchResultsUL.append($flightLi);
         })
-
-
-
-
+        
     },
     render: function() {
         var SearchInputViewTemplate = $('#SearchInputViewTemplate').html();
