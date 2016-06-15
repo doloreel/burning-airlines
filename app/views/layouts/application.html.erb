@@ -8,6 +8,14 @@
 </head>
 <body>
 
+<nav class=navigation>
+  <%= link_to "All Planes", airplanes_path %>
+  <%= link_to "Create Plane", new_airplane_path %>
+  <%= link_to "All Flights", flights_path %>
+  <%= link_to "Create Flights", new_flight_path %>
+</nav>
+
+
 <%= yield %>
 
 <div id="main">
@@ -15,7 +23,7 @@
 </div>
 
 <script id="appViewTemplate" type="html/template">
-    <hr> 
+    <hr>
   <h1>App backbone below here</h1>
   <div id="container">
   </div>
@@ -28,12 +36,6 @@
     <ul id="searchResults">
     </ul>
 </script>
-
-
-
-
-
-
 
 <script id="airplaneInputViewTemplate" type="html/template">
     <label>Plane Model</label>
