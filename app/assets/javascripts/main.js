@@ -7,13 +7,9 @@ $(document).ready(function() {
 
     var sydtony = new app.Flight();
     sydtony.set({
-        flight_id       : '',
-        plane_id        : '',
-        departure_date  : '',
-        origin          : '',
-        destination     : '',
-        created_at      : '',
-        updated_at      : ''
+        origin          : 'SYD',
+        destination     : 'NY',
     })
     sydtony.save();
+    app.flights.add(sydtony);
 })
