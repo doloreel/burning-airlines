@@ -7,8 +7,9 @@ app.Airplanes = Backbone.Collection.extend({
         console.log('airplane collection initialised')
         this.on('add', function (airplane) {
             var airplaneView = new app.AirplaneView({
-
-            })
+                model: airplane
+            });
+            airplaneView.render();
         })
     }
 });
