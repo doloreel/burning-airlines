@@ -1,3 +1,27 @@
-// Place all the styles related to the Airplanes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.plane_name {
+  font-size: 30px;
+}
+
+.column {
+  text-align: center;
+  max-width: 20px;
+  padding: 10px;
+}
+
+.plane_seat_grid {
+  display: flex;
+}
+
+.seat {
+  border: 1px solid black;
+  width: 30px;
+  height: 30px;
+}
+
+.seat p {
+  margin-top: 8px;
+}
+
+span {
+  margin-left: 5px;
+}

@@ -11,6 +11,9 @@ class AirplanesController < ApplicationController
   # GET /airplanes/1.json
   def show
     @airplane = Airplane.find params[:id]
+    @row = 1
+    @column_counter = 0
+    @column_letters = ('A'..'Z').to_a
   end
 
   # GET /airplanes/new
