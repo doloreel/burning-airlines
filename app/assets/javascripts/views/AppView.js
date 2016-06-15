@@ -2,7 +2,7 @@ var app = app || {};
 
 app.AppView = Backbone.View.extend({
     el:'#main',
-    render: function (view) {
+    render: function (view, id) {
 
         console.log('APP VIEW RENDERING');
         var appViewTemplate = $("#appViewTemplate").html();
@@ -15,7 +15,7 @@ app.AppView = Backbone.View.extend({
 
         if (view === 'flight') {
             var flightView = new app.FlightView();
-            flightView.render();
+            flightView.render(id);
         }
 
         // USE THE VIDEO

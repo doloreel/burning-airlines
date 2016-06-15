@@ -10,8 +10,8 @@ app.AppRouter = Backbone.Router.extend({
         var appView = new app.AppView();
         appView.render('search');
     },
-    flightPage: function (e) {
+    flightPage: function (id) {
         var appView = new app.AppView();
-        appView.render('flight');
+        appView.render('flight', id);
     }
 })
