@@ -14,7 +14,8 @@ app.AppView = Backbone.View.extend({
         }
 
         if (view === 'flight') {
-            
+            var flightView = new app.FlightView();
+            flightView.render();
         }
 
         // USE THE VIDEO
