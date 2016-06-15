@@ -9,10 +9,10 @@ app.AppView = Backbone.View.extend({
 
         this.$el.html( appViewTemplate );
 
-
         var searchView = new app.SearchView();
+        
         searchView.render();
 
-    
+
     }
 })
