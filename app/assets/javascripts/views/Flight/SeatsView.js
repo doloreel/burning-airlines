@@ -6,5 +6,10 @@ app.FlightSeatsView = Backbone.View.extend({
         this.$el.html(id);
         var seatsDetailsView = new app.SeatsDetailsView();
         seatsDetailsView.render(id);
+
+        // CREATE RESERVATIONS MODEL
+        // GET ALL RESERVATION
+        
+
     }
 });
