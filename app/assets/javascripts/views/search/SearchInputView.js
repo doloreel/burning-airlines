@@ -20,9 +20,8 @@ app.SearchInputView = Backbone.View.extend({
             result = app.flights.where({origin: originInput});
             result = _.map(result, function(child) { return child.toJSON() });
         } else if (destInput.length > 0 && originInput.length > 0) {
-            result = app.flights.where({origin: originInput});
+            result = app.flights.where({origin: originInput, destination: destInput });
             result = _.map(result, function(child) { return child.toJSON() });
-            result = _.where(result, {destination: destInput});
         } else {
             alert('search something bra')
             return;
@@ -33,7 +32,7 @@ app.SearchInputView = Backbone.View.extend({
         $searchResultsUL.html('');
 
         result.forEach(function(flight) {
-            
+
             var flightDetails = '<a href="flight/';
                 flightDetails += flight.id + '"> '
                 flightDetails += flight.departure_date + " ";

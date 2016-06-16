@@ -1,1 +1,24 @@
+.seatCol {
+  text-align: center;
+  max-width: 20px;
+  padding: 10px;
+}
 
+#seatsDetails {
+  display: flex;
+}
+
+.seat {
+  border: 1px solid black;
+  width: 30px;
+  height: 30px;
+  padding-top: 8px;
+}
+
+.colLetter {
+  padding-left: 10px;
+}
+
+.reserved {
+  background-color: grey;
+}

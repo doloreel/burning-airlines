@@ -1,15 +1,20 @@
 var app = app || {}
 
-app.FlightSeatsView = Backbone.View.extend({
+app.SeatsView = Backbone.View.extend({
     el: '#flightSeats',
-    render: function(id) {
-        this.$el.html(id);
+    render: function(planeModel) {
+
+        var flightSeatsTemplate = $("#FlightSeatsTemplate").html();
+        this.$el.html( flightSeatsTemplate );
+
         var seatsDetailsView = new app.SeatsDetailsView();
-        seatsDetailsView.render(id);
+        seatsDetailsView.render(planeModel);
 
         // CREATE RESERVATIONS MODEL
         // GET ALL RESERVATION
+
         
+
 
     }
 });
