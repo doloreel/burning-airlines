@@ -1,9 +1,19 @@
 app.flights = new app.Flights();
 
 $(document).ready(function() {
-    app.router = new app.AppRouter();
-    Backbone.history.start();
-    app.flights.fetch();
+
+    app.flights.fetch().done(function() {
+        app.router = new app.AppRouter();
+        Backbone.history.start(); //
+    });
+
+
+    var init = function () {
+
+    }
+
+
+
 
     // var sydtony = new app.Flight();
     // sydtony.set({
