@@ -71,6 +71,8 @@ app.SeatsDetailsView = Backbone.View.extend({
                           $div.addClass('reserved');
                           $div.html(resName);
                         }
+                    } else if (app.seats.indexOf(currentSeatOnPlane) >= 0) {
+                        $div.addClass('reserved');
                       }
                   });
 
