@@ -4,8 +4,19 @@ app.SearchInputView = Backbone.View.extend({
     el: "#searchInput",
     events: {
         'click button': 'searchFlights',
-        'click .flightRecord': 'goToFlight'
+        'click .flightRecord': 'goToFlight',
+        'keydown #destination': 'checkForEnter',
+        'keydown #origin': 'checkForEnter'
     },
+
+    checkForEnter: function(){
+      app.ENTER_KEY = 13;
+        if (event.which === app.ENTER_KEY) {
+          event.preventDefault();
+          this.searchFlights();
+}
+    },
+
     searchFlights: function (e) {
 
         var originInput = this.$el.find("#origin").val();

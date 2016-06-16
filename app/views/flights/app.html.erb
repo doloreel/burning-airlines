@@ -2,6 +2,11 @@
   App will go here
 </div>
 
+<script>
+  var app = app || {};
+  app.currentUser = <%= @current_user.to_json.html_safe %>;
+</script>
+
 <script id="appViewTemplate" type="html/template">
     <hr>
   <div id="container">
@@ -44,8 +49,11 @@
 </script>
 
 <script id="FlightSeatsTemplate" type="html/template">
+
     <div id="seatsDetails">
+      <button id="reserveSeat">Reserve Seat</button>
     </div>
+
 </script>
 
 <script id="SeatDetailsTemplate" type="html/template">

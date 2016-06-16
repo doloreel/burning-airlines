@@ -11,6 +11,6 @@ app.FlightView = Backbone.View.extend({
         var flightDetailsView = new app.FlightDetailsView();
         flightDetailsView.render(currentFlight, planeModel);
         var flightSeatsView = new app.SeatsView();
-        flightSeatsView.render(planeModel);
+        flightSeatsView.render(planeModel, currentFlight);
     }
-})
+});
