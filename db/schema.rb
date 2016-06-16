@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20160614233610) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.integer  "seat_id"
+    t.text     "seat"
     t.integer  "user_id"
     t.integer  "flight_id"
     t.datetime "created_at", null: false
