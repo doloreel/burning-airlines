@@ -33,9 +33,8 @@
 
 
   <p>
-  <%= f.label :plane_id %>
-  <!-- Airplane.all  -->
-  <%= f.select :plane_id, Airplane.all.map { |a| [ a.id ]} %>
+  <%= f.label :airplane_id %>
+  <%= f.select :airplane_id, Airplane.all.map { |a| [ a.plane_model, a.id ]} %>
 </p>
 
 

@@ -3,10 +3,10 @@
 
 <p class="plane_name"><%= @airplane.plane_model %></p>
 <div class="plane_seat_grid">
-  <% @airplane.column.times do %>
+  <% @airplane.columns.times do %>
   <div class="column">
     <span><%= @column_letters[@column_counter] %></span>
-    <% @airplane.row.times do %>
+    <% @airplane.rows.times do %>
       <div class="seat">
         <p><%= @row %></p>
         <% @row += 1 %>
