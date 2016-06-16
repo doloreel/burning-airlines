@@ -1,3 +1,8 @@
+
+ @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Hind:400,600|Asap|Cantarell|Droid+Sans+Mono|Sintony:400,700);
+ @import url(https://fonts.googleapis.com/css?family=Martel+Sans:900,600,800);
+/*
+ font-family: 'Martel Sans', sans-serif;*/
 .seatCol {
   text-align: center;
   max-width: 50px;
@@ -6,6 +11,10 @@
 
 .allColumns {
   display: flex;
+}
+
+#reserveSeat {
+  max-height: 30px;
 }
 
 .seat {
@@ -23,6 +32,98 @@
   background-color: grey;
 }
 
-#reserveSeat {
-  max-height: 30px;
-}
+
+.background {
+    background: url("flight.jpg");
+    width: 100%;
+    height: 700px;;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    padding-top: 80px;
+    position: absolute;
+    }
+
+.image{
+    /*background: url("airport.jpg");*/
+    width: 100%;
+    height: 700px;;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    padding-top: 80px;
+    position: absolute;
+    }
+
+h1{
+    font-family: 'Martel Sans', sans-serif;
+    color: #52667a;
+    text-transform: uppercase;
+    font-size: 50px;
+    font-weight: 800;
+    }
+
+
+  .navigation a {
+    opacity: 1;
+    color: white;
+    font-family: 'Cantarell', sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    float:right;
+    margin-right: 30px;
+    display: block;
+    opacity: 1;
+    line-height: 80px;
+    z-index: 10;
+    }
+
+  .navigation a:hover {
+    color: white;
+    text-decoration: none;
+    }
+
+  header{
+    position: fixed;
+    background-color:rgba(69, 74, 80, 0.2);
+    /*opacity: .3;*/
+    width:100vw;
+    height: 80px;
+    top: 0px;
+    left: 0px;
+    line-height: 50px;
+    z-index: 1000;
+    }
+
+  .text {
+    text-align: center;
+    font-family: 'Cantarell', sans-serif;
+    color: white;
+    }
+
+  .login {
+    /*background-color: #e6ccb3;*/
+    background-color: #52667a;
+    border-style: none;
+    border-radius: 4px;
+    padding: 15px 50px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 15px;
+    }
+
+.login:focus {
+  outline: none;
+  }
+
+
+.loginbutton {
+  background-color: transparent;
+  border: 2px solid #52667a;
+  text-transform: uppercase;
+  color: #52667a;
+  font-size: 15px;
+  padding: 10px;
+  }
+
+.form {
+  text-align: center;
+  }

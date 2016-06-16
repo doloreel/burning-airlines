@@ -1,27 +1,28 @@
-<h1>This should show the log in form</h1>
+<div class="background">
+  <div class="text">
 
-<% if flash[:success] %>
-<p><%=flash[:success] %></p>
-<% end %>
 
-<% if flash[:error] %>
-<p><%=flash[:error] %></p>
-<% end %>
+<!-- <%# if flash[:success] %>
+<p><%#=flash[:success] %></p>
+<%# end %>
+
+<%# if flash[:error] %>
+<p><%#=flash[:error] %></p>
+<%# end %> -->
 
 <%= form_tag login_path do %>
-
-
-<p>
-  <%= label_tag :email %>
-  <%= email_field_tag :email %>
-</p>
+  <h1>Login</h1>
+  <%#= label_tag :email %>
+  <%= email_field_tag :email, type="email", :class => "login"%>
 
 <p>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
+  <%#= label_tag :password %>
+  <%= password_field_tag :password, type="password", :class => "login" %>
 </p>
-
-<%= submit_tag "Login" %>
+<br>
+<%= submit_tag "Login", :class => "loginbutton" %>
 
 
 <% end %>
+</div>
+</div>

@@ -5,9 +5,12 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Hind:400,600|Asap|Cantarell|Droid+Sans+Mono|Sintony:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Martel+Sans:900,600,800' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
+<header>
 <nav class=navigation>
   <% if @current_user %>
   <%= link_to "All Planes", airplanes_path %>
@@ -17,10 +20,10 @@
   <%= link_to "Search Flights", search_path %>
   <%= link_to "Logout", logout_path, :method => :delete%>
   <% else %>
-  <%= link_to "Create an account", users_new_path %>
+  <%= link_to "Sign up", users_new_path %>
   <%= link_to "Login", login_path %>
   <% end %>
-</nav>
+</nav></header>
 
 
 <%= yield %>
