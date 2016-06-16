@@ -33,6 +33,6 @@ showFLight: function(id) {
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
-How templating works
+Q's:
 
-Most basic approach
+What loading issue is causing the search load issue

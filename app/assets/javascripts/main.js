@@ -12,4 +12,4 @@ $(document).ready(function() {
     // })
     // sydtony.save();
     // app.flights.add(sydtony);
-})
+});
