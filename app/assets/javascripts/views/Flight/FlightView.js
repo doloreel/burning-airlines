@@ -1,5 +1,6 @@
 var app = app || {};
 
+
 app.FlightView = Backbone.View.extend({
     el: '#container',
     render: function (id) {
@@ -10,7 +11,7 @@ app.FlightView = Backbone.View.extend({
         this.$el.html(flightViewTemplate);
         var flightDetailsView = new app.FlightDetailsView();
         flightDetailsView.render(currentFlight, planeModel);
-        var flightSeatsView = new app.SeatsView();
-        flightSeatsView.render(planeModel, currentFlight);
+        app.flightSeatsView = new app.SeatsView();
+        app.flightSeatsView.render(planeModel, currentFlight);
     }
 });

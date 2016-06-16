@@ -31,7 +31,7 @@ app.SeatsDetailsView = Backbone.View.extend({
           });
 
           if ( sameReservations.length === 0 ) {
-            reservation.save().done(function () {
+              reservation.save().done(function () {
               view.render( app.currentPlane, app.currentFlight );
             });
             app.reservations.add( reservation );
@@ -71,6 +71,8 @@ app.SeatsDetailsView = Backbone.View.extend({
                           $div.addClass('reserved');
                           $div.html(resName);
                         }
+                    } else if (app.seats.indexOf(currentSeatOnPlane) >= 0) {
+                        $div.addClass('reserved');
                       }
                   });
 
