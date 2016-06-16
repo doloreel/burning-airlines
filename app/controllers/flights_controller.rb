@@ -8,6 +8,10 @@ class FlightsController < ApplicationController
     @airplanes = Airplane.all
   end
 
+  def app
+      @currentUser
+  end
+
   # GET /flights/1
   # GET /flights/1.json
   def show

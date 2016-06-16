@@ -31,7 +31,7 @@ app.SeatsDetailsView = Backbone.View.extend({
           });
 
           if ( sameReservations.length === 0 ) {
-            reservation.save().done(function () {
+              reservation.save().done(function () {
               view.render( app.currentPlane, app.currentFlight );
             });
             app.reservations.add( reservation );
