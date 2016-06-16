@@ -17,8 +17,5 @@ app.AppView = Backbone.View.extend({
             var flightView = new app.FlightView();
             flightView.render(id);
         }
-
-        // USE THE VIDEO
-
     }
-})
+});

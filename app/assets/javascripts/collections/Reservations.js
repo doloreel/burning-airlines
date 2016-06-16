@@ -5,8 +5,8 @@ app.Reservations = Backbone.Collection.extend({
     model: app.Reservation,
     initialize: function () {
         console.log('initialized res collection');
-        this.on('add', function () {
-            console.log("Re-render seating plan");
+        this.on('change', function () {
+          console.log("Collection changed");
         });
     }
 });

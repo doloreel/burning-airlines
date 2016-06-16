@@ -11,7 +11,8 @@ app.SeatsDetailsView = Backbone.View.extend({
     },
 
     seatReserved: function(e){
-        console.log(app.seats.length);
+
+        var view = this;
 
         app.seats.forEach(function(seat) {
           var reservation = new app.Reservation();
@@ -21,36 +22,38 @@ app.SeatsDetailsView = Backbone.View.extend({
             plane_id: app.currentPlane.id,
             user_id: app.currentUser.id
           });
-          reservation.save();
-          app.reservations.add( reservation );
+
+          var sameReservations = app.reservations.where({
+            seat: seat,
+            flight_id: app.currentFlight.flight_number,
+            plane_id: app.currentPlane.id,
+            user_id: app.currentUser.id
+          });
+
+          if ( sameReservations.length === 0 ) {
+            reservation.save().done(function () {
+              view.render( app.currentPlane, app.currentFlight );
+            });
+            app.reservations.add( reservation );
+          }
         });
     },
 
     render: function(planeModel, currentFlight) {
-
+        $(".allColumns").html('');
         app.currentFlight = currentFlight;
         app.currentPlane = planeModel;
 
-        $seatCols = $('#seatCols');
-        $seatRows = $('#seatRows');
-        $seatsTotal = $('#seatsTotal');
-        $seatsLeft = $('#seatsLeft');
-
         var seatsTotal = planeModel.columns * planeModel.rows;
-        // var seatsLeft = seatsTotal - reservations;
-
-        $seatCols.html(planeModel.columns);
-        $seatRows.html(planeModel.rows);
-        $seatsTotal.html(seatsTotal);
-        // $seatsLeft.html(seatsLeft);
 
         var $seatsDetails = $("#seatsDetails");
         var rows = 1;
         var columnLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S"];
         var columnCounter = 0;
         var allReservations = app.reservations.toJSON();
-        // console.log(allReservations);
+        var currentReservation = _.where(allReservations, {flight_id: app.currentFlight.flight_number } );
 
+        var $containerDiv = $("<div>").addClass("allColumns");
         _.times(planeModel.columns, function(){
             $divCol = $("<div class='seatCol'>");
             $span = $("<span class='colLetter'>");
@@ -61,11 +64,13 @@ app.SeatsDetailsView = Backbone.View.extend({
                   var currentSeatOnPlane = rows+columnLetters[columnCounter];
                   $div.html(rows+columnLetters[columnCounter]);
 
-                  allReservations.forEach(function(reservation) {
+                  currentReservation.forEach(function(reservation) {
                       if (reservation.seat === currentSeatOnPlane) {
-                        var resName = reservation.user.name;
-                        $div.addClass('reserved');
-                        $div.html(resName);
+                        if ( reservation.user ) {
+                          var resName = reservation.user.name;
+                          $div.addClass('reserved');
+                          $div.html(resName);
+                        }
                       }
                   });
 
@@ -74,14 +79,19 @@ app.SeatsDetailsView = Backbone.View.extend({
                 });
               rows = 1;
               columnCounter += 1;
-              $seatsDetails.append($divCol);
+              $containerDiv.append($divCol);
         });
+        $seatsDetails.append($containerDiv);
         $(".seat").on("click", function(e){
 
           var $currentCell = $(e.currentTarget);
 
           if ($currentCell.hasClass("reserved")) {
               console.log("Already reserved");
+              $currentCell.toggleClass("reserved");
+              var index = app.seats.indexOf( $currentCell.html() );
+              app.seats.splice(index, 1);
+              console.log(app.seats);
           } else {
               app.seats.push( $currentCell.html() );
               $currentCell.toggleClass("reserved");
