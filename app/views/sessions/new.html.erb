@@ -13,11 +13,11 @@
 <%= form_tag login_path do %>
   <h1>Login</h1>
   <%#= label_tag :email %>
-  <%= email_field_tag :email, type="email", :class => "login"%>
+  <%= email_field_tag :email, type="", :class => "login", :placeholder => "email"%>
 
 <p>
   <%#= label_tag :password %>
-  <%= password_field_tag :password, type="password", :class => "login" %>
+  <%= password_field_tag :password, type="", :class => "login", :placeholder => "password" %>
 </p>
 <br>
 <%= submit_tag "Login", :class => "loginbutton" %>

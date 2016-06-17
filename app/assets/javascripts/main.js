@@ -29,12 +29,9 @@ $(document).ready(function() {
                      app.reservations.fetch().done(function(data){
                          app.flightSeatsView.render( app.currentPlane, app.currentFlight );
                          reservationPoll();
-                     })
-                }, 1000)
+                     });
+                }, 1000);
             })();
         }
-    }
-
-
-
+    };
 });
