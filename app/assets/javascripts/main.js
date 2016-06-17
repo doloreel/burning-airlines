@@ -7,7 +7,6 @@ var totalReservations;
 $(document).ready(function() {
 
     var pollsOn = true;
-
     app.reservations.fetch().done(function(){
       app.airplanes.fetch().done(function(){
         app.flights.fetch().done(function() {
@@ -20,13 +19,16 @@ $(document).ready(function() {
       });
     });
 
-
     var initPolls = function() {
+        console.log('init poll fired');
         pollsOn = false;
         if(app.flightSeatsView) {
             (function reservationPoll(){
+                console.log('initialising poll');
                 setTimeout(function(){
+                    console.log('fetching')
                      app.reservations.fetch().done(function(data){
+                         console.log('fetched data');
                          app.flightSeatsView.render( app.currentPlane, app.currentFlight );
                          reservationPoll();
                      });
