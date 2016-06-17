@@ -31,15 +31,9 @@ $(document).ready(function() {
                          console.log('fetched data');
                          app.flightSeatsView.render( app.currentPlane, app.currentFlight );
                          reservationPoll();
-                     })
-                }, 1000)
+                     });
+                }, 1000);
             })();
         }
-    }
-
-
-
-
-
-
+    };
 });
